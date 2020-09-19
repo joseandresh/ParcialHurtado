@@ -17,12 +17,14 @@ namespace RestCountries.Controllers
         private DataContext db = new DataContext();
 
         // GET: api/Countries
+        [Authorize]
         public IQueryable<Country> GetCountries()
         {
             return db.Countries;
         }
 
         // GET: api/Countries/5
+        [Authorize]
         [ResponseType(typeof(Country))]
         public IHttpActionResult GetCountry(string id)
         {
@@ -36,6 +38,7 @@ namespace RestCountries.Controllers
         }
 
         // PUT: api/Countries/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCountry(string id, Country country)
         {
@@ -71,6 +74,7 @@ namespace RestCountries.Controllers
         }
 
         // POST: api/Countries
+        [Authorize]
         [ResponseType(typeof(Country))]
         public IHttpActionResult PostCountry(Country country)
         {
@@ -101,6 +105,7 @@ namespace RestCountries.Controllers
         }
 
         // DELETE: api/Countries/5
+        [Authorize]
         [ResponseType(typeof(Country))]
         public IHttpActionResult DeleteCountry(string id)
         {
